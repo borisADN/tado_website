@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap");
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Baloo 2", sans-serif;
+      }
+
+      h1 {
+        font-size: 50px;
+        line-height: 64px;
+        color: #222;
+      }
+
+      h2 {
+        font-size: 46px;
+        line-height: 54px;
+        color: #222;
+      }
+
+      h4 {
+        font-size: 20px;
+        color: #222;
+      }
+
+      h6 {
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      p {
+        font-size: 16px;
+        color: #465b52;
+        margin: 15px 0 20px 0;
+      }
+
+      .section-p1 {
+        padding: 40px 80px;
+      }
+
+      .section-m1 {
+        padding: 40px 0;
+      }
+
+      body {
+        width: 100%;
+        font-family: inherit;
+      }
+
+      #header {
+        position: fixed;
+        width: 100%;
+        overflow: hidden;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 80px;
+        background-color: #f3f3f6;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+      }
+
+      #navbar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #mobile {
+        display: none;
+        align-items: center;
+      }
+
+      #close {
+        display: none;
+      }
+
+      #navbar li {
+        list-style: none;
+        padding: 0 20px;
+        position: relative;
+      }
+
+      #navbar li a {
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        color: #1a1a1a;
+        transition: 0.3s ease;
+      }
+
+      #navbar li a:hover,
+      #navbar li a.active {
+        color: #088178;
+      }
+
+      #navbar li a:hover::after,
+      #navbar li a.active::after {
+        content: " ";
+        width: 30%;
+        height: 2px;
+        background: 2px;
+        background-color: #088178;
+        position: absolute;
+        bottom: -4px;
+        left: 20px;
+      }
+
+      #hero {
+        background-image: url("./images/freepik__ecommerce-banner-sunny-outdoor-market-scene-with-a__28343.png");
+        height: 70vh;
+        width: 100%;
+        background-size: cover;
+        background-position: top 25% right 0;
+        padding: 0 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        line-height: 1;
+      }
+
+      #hero h1 {
+        color: #088178;
+      }
+      #hero h2 {
+      }
+
+      #hero h4 {
+        padding-bottom: 15px;
+      }
+
+      #hero button {
+        background-image: url(https://i.postimg.cc/528H2mmS/button.png);
+        background-color: transparent;
+        color: #088178;
+        border: 0;
+        padding: 14px 80px 14px 65px;
+      }
+
+      #product1 {
+        text-align: center;
+      }
+
+      #product1 .pro-container {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+        flex-wrap: wrap;
+      }
+
+      #product1 .pro {
+        width: 23%;
+        min-width: 250px;
+        padding: 10px 12px;
+        border: 1px solid #cce7d0;
+        border-radius: 25px;
+        cursor: pointer;
+        box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+        margin: 15px 0;
+        transition: 0.2s ease;
+        position: relative;
+      }
+
+      #product .pro:hover {
+        box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+      }
+
+      #product1 .pro img {
+        width: 100%;
+        border-radius: 20px;
+      }
+
+      #product1 .pro .des {
+        text-align: start;
+        padding: 10px 0;
+      }
+
+      #product1 .pro .des span {
+        color: #606063;
+        font-size: 12px;
+      }
+
+      #product1 .pro .des h5 {
+        padding-top: 7px;
+        color: #1a1a1a;
+        font-size: 14px;
+      }
+
+      #product1 .pro .des i {
+        font-size: 12px;
+        color: rgb(243, 181, 25);
+      }
+
+      #product1 .pro .des h4 {
+        font-size: 15px;
+        padding-top: 7px;
+        font-weight: 700;
+        color: #088178;
+      }
+
+      #product1 .pro .cart {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 50px;
+        background-color: #e8f6ea;
+        font-weight: 500;
+        color: #088178;
+        border: 1px solid #cce7d0;
+        position: absolute;
+        bottom: 20px;
+        right: 10px;
+      }
+
+      /*----------------------Media Query ----------*/
+
+      @media (max-width: 920px) {
+        .section-p1 {
+          padding: 40px 40px;
+        }
+
+        #navbar {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          position: fixed;
+          top: 0;
+          right: -300px;
+          height: 100vh;
+          width: 300px;
+          background-color: #e3e6f3;
+          box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+          padding: 80px 0 0 10px;
+          transition: 0.3s;
+        }
+
+        #navbar.active {
+          right: 0;
+        }
+
+        #navbar li {
+          margin-bottom: 25px;
+        }
+
+        #mobile {
+          display: flex;
+          align-items: center;
+        }
+        #mobile i {
+          font-size: 32px;
+          color: #1a1a1a;
+          padding-left: 20px;
+        }
+        body #lg-bag {
+          display: none;
+        }
+
+        #close {
+          display: initial;
+          position: absolute;
+          top: -280px;
+          left: 20px;
+          color: #222;
+          font-size: 32px;
+        }
+
+        #hero {
+          height: 70vh;
+          padding: 0 80px;
+          background-position: top 30% right 30%;
+        }
+
+        #product1 .pro-container {
+          justify-content: center;
+        }
+
+        #product1 .pro {
+          margin: 15px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-p1 {
+          padding: 20px;
+        }
+
+        #header {
+          padding: 10px 30px;
+        }
+
+        #hero {
+          padding: 0 20px;
+          background-position: 55%;
+        }
+
+        h2 {
+          font-size: 30px;
+        }
+
+        h1 {
+          font-size: 28px;
+        }
+
+        p {
+          line-height: 24px;
+          font-size: 10px;
+        }
+
+        #hero button {
+          margin-right: 10px;
+        }
+
+        #product1 .pro {
+          width: 48%; /* chaque produit prend environ la moitié */
+          margin: 1%;
+        }
+
+        #product1 .pro-container {
+          justify-content: space-between;
+        }
+      }
+    </style>
+
+    <section id="header">
+      <a href="#"><img src="./images/Tado-logo (1) (1).png" /></a>
+      <!-- <input type="text"> -->
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+
+          <li>
+            <a href="#" id="close"><i class="far fa-times"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div id="mobile">
+        <i id="bar" class="fas fa-outdent"></i>
+      </div>
+    </section>
+
+    <section id="hero"></section>
+		<section id="categories" class="section-p1">
+  <h2>Shop by Category</h2>
+  <div class="category-slider">
+    <div class="category"><p>Phones</p></div>
+    <div class="category"><p>Laptops</p></div>
+    <div class="category"><p>Shoes</p></div>
+    <div class="category"><p>Watches</p></div>
+    <div class="category"><p>Bags</p></div>
+    <div class="category"><p>Phones</p></div>
+  </div>
+</section>
+
+    <section id="product1" class="section-p1">
+      <h2>Featured Products</h2>
+      <p>Summer Collection New Modern Design</p>
+      <div class="pro-container">
+        <div class="pro">
+          <img src="https://i.postimg.cc/kg9YYbTn/f1.jpg" alt="" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>Carton Astronault Tshirts</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+          <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+
+        <div class="pro">
+          <img
+            src="./images/floating-white-sneaker-minimalist-shoe-design_191095-80028.avif"
+            alt=""
+          />
+          <div class="des">
+            <span>adidas</span>
+            <h5>Carton Leave Tshirts</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+          <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+
+        <div class="pro">
+          <img src="https://i.postimg.cc/VL9DtNm2/f3.jpg" alt="" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>Rose Multicolor Tshirts</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+          <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+
+        <div class="pro">
+          <img src="https://i.postimg.cc/vZ3hPS1z/f4.jpg" alt="" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>Pink Flower Tshirts</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+          <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+
+        <div class="pro">
+          <img src="https://i.postimg.cc/q7FLrhx6/f5.jpg" alt="" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>Purple Flowering Tshirts</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+          <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+
+        <div class="pro">
+          <img src="https://i.postimg.cc/L86BZByZ/f7.jpg" alt="" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>Short Knicker</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+          <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+
+        <div class="pro">
+          <img src="https://i.postimg.cc/zDxJ2f0H/f6.jpg" alt="" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>2 in 1 Double Routed</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+          <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+
+        <div class="pro">
+          <img src="https://i.postimg.cc/x8qcBrpP/n6.jpg" alt="" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>Ash Short</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+          <a href=""><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+      </div>
+    </section>
+    <script>
+      const bar = document.getElementById("bar");
+      const close = document.getElementById("close");
+      const nav = document.getElementById("navbar");
+
+      if (bar) {
+        bar.addEventListener("click", () => {
+          nav.classList.add("active");
+        });
+
+        if (close) {
+          close.addEventListener("click", () => {
+            nav.classList.remove("active");
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

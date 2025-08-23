@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boutique</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; margin: 0; }
+    h1 { text-align: center; }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 20px;
+    }
+    .product {
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      background: #fff;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .product:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    img { max-width: 100%; border-radius: 8px; }
+
+    /* Mobile : afficher 2 colonnes */
+    @media (max-width: 768px) {
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Nos Produits</h1>
+  <div class="products" id="products"></div>
+
+  <script>
+    // Exemple de produits
+    const produits = [
+      { id: 1, nom: "Chaussures Sport", prix: 25000, image: "https://via.placeholder.com/200?text=Chaussures" },
+      { id: 2, nom: "Sac à dos", prix: 15000, image: "https://via.placeholder.com/200?text=Sac" },
+      { id: 3, nom: "Montre", prix: 40000, image: "https://via.placeholder.com/200?text=Montre" },
+      { id: 4, nom: "Casque Audio", prix: 30000, image: "https://via.placeholder.com/200?text=Casque" },
+      { id: 5, nom: "T-shirt", prix: 8000, image: "https://via.placeholder.com/200?text=Tshirt" },
+      { id: 6, nom: "Lunettes", prix: 12000, image: "https://via.placeholder.com/200?text=Lunettes" }
+    ];
+
+    const container = document.getElementById("products");
+
+    produits.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "product";
+      div.innerHTML = `
+        <img src="${p.image}" alt="${p.nom}">
+        <h3>${p.nom}</h3>
+        <p>${p.prix} FCFA</p>
+      `;
+      div.onclick = () => {
+        localStorage.setItem("produitSelectionne", JSON.stringify(p));
+        window.location.href = "product.html";
+      };
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>
