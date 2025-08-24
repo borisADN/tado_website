@@ -38,6 +38,18 @@ if (bar) {
   const a = document.createElement("a");
   a.href = "";
 
+  // Stocker le produit dans le localStorage
+  // a.addEventListener("click", (e) => {
+  //   e.preventDefault(); // empêche la redirection immédiate
+  //   localStorage.setItem("selectedProduct", JSON.stringify(p));
+  //   window.location.href = "./order_view.html";
+  // });
+
+div.onclick = (e) => {
+  e.preventDefault();
+  localStorage.setItem("selectedProduct", JSON.stringify(p));
+  window.location.href = "./order_view.html";
+}
   const i = document.createElement("i");
   i.className = "fal fa-shopping-cart cart";
 
