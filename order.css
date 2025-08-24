@@ -98,7 +98,7 @@ body {
 
     .photos img {
       width: 90px;
-      margin-right: 10px;
+      margin-right: 5px;
       border-radius: 10px;
       cursor: pointer;
     }
