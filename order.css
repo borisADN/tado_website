@@ -93,11 +93,11 @@ body {
 
     /* MINI IMAGES */
     .photos {
-      margin: 15px 0;
+      margin: 10px 0;
     }
 
     .photos img {
-      width: 100px;
+      width: 90px;
       margin-right: 10px;
       border-radius: 10px;
       cursor: pointer;
